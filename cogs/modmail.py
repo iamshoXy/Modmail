@@ -458,7 +458,7 @@ class Modmail(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command(usage="[after] [close message]")
-    @checks.has_permissions(PermissionLevel.SUPPORTER)
+    @checks.has_permissions(PermissionLevel.MODERATOR)
     @checks.thread_only()
     async def close(
         self,
