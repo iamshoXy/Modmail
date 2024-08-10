@@ -304,19 +304,6 @@ class ModmailBot(commands.Bot):
                 pass
             logger.debug("LOG_CHANNEL_ID was invalid, removed.")
             self.config.remove("log_channel_id")
-        if self.main_category is not None:
-            try:
-                channel = self.main_category.channels[0]
-                self.config["log_channel_id"] = channel.id
-                logger.warning("No log channel set, setting #%s to be the log channel.", channel.name)
-                return channel
-            except IndexError:
-                pass
-        logger.warning(
-            "No log channel set, set one with `%ssetup` or `%sconfig set log_channel_id <id>`.",
-            self.prefix,
-            self.prefix,
-        )
         return None
 
     @property
